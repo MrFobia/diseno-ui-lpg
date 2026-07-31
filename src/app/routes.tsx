@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router";
 import { Root } from "./components/layout/Root";
 import Home from "./pages/Home";
+import HomeAlt from "./pages/HomeAlt";
 import Servicios from "./pages/Servicios";
 import Clientes from "./pages/Clientes";
 import IPM from "./pages/IPM";
@@ -25,6 +26,7 @@ export const router = createBrowserRouter([
     Component: Root,
     children: [
       { index: true, Component: Home },
+      { path: "home-2", Component: HomeAlt },
       { path: "servicios", Component: Servicios },
       { path: "servicios/:slug", Component: Servicios },
       { path: "clientes", Component: Clientes },

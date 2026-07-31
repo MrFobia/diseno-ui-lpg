@@ -67,7 +67,7 @@ function SocialSidebar() {
             style={{
               width: 36, height: 36,
               display: "flex", alignItems: "center", justifyContent: "center",
-              color: W40,
+              color: GREEN,
               transition: "color 0.2s, background 0.2s",
               borderRadius: "50%",
               border: `1px solid transparent`,
@@ -78,7 +78,7 @@ function SocialSidebar() {
               e.currentTarget.style.backgroundColor = `${W}06`;
             }}
             onMouseLeave={e => {
-              e.currentTarget.style.color = W40;
+              e.currentTarget.style.color = GREEN;
               e.currentTarget.style.border = "1px solid transparent";
               e.currentTarget.style.backgroundColor = "transparent";
             }}

@@ -4,7 +4,7 @@ import { Glow } from "../components/shared/Glow";
 import { FONT, B1, B3, B4, GREEN, W, W40, W08, L_BG, L_BG2, L_MID, L_RULE } from "../tokens";
 
 const TIMES = ["09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30"];
-const MODALITIES = ["Videollamada (Zoom)", "Presencial en Cali", "Presencial en Bogotá", "Presencial en Medellín"];
+const MODALITIES = ["Videollamada (Zoom)", "Presencial en Bogotá", "Presencial en Cali", "Presencial en Medellín"];
 const TOPICS = ["Asuntos Públicos", "Comunicaciones Estratégicas", "Comunicación Digital", "Manejo de Crisis", "IPM - Presencia en Medios", "Consultoría General"];
 
 function getDates() {

@@ -117,10 +117,6 @@ export default function Sectores() {
                     <strong style={{ fontWeight: 700 }}>Clientes de referencia:</strong> {s.clients}
                   </span>
                 </div>
-
-                <Link to="/contacto" style={{ fontFamily: FONT, fontWeight: 700, fontSize: 12, letterSpacing: "0.1em", textTransform: "uppercase", backgroundColor: B3, color: W, padding: "14px 36px", textDecoration: "none", display: "inline-block" }}>
-                  Trabajemos juntos →
-                </Link>
               </div>
 
               {/* Image — always second on mobile via lpg-svc-img */}

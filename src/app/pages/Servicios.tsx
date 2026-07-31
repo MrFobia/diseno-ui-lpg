@@ -1,27 +1,27 @@
-import { useState } from "react";
-import { Link } from "react-router";
+import { useState, useEffect } from "react";
+import { Link, useParams } from "react-router";
 import { PageHero } from "../components/shared/PageHero";
 import { Glow } from "../components/shared/Glow";
 import { FONT, B1, B3, GREEN, W, W40, W08, L_BG, L_BG2, L_TEXT, L_MID, L_RULE } from "../tokens";
 
 const SERVICES = [
   {
-    num: "01", slug: "asuntos-publicos",
-    title: "Asuntos Públicos",
-    subtitle: "Relacionamiento estratégico con poder",
-    description: "Diseñamos y ejecutamos estrategias de relacionamiento con el sector público, gremios, congresistas y entidades regulatorias para posicionar favorablemente a nuestros clientes en las decisiones que importan.",
-    items: ["Lobby legislativo y regulatorio", "Relacionamiento con entidades del gobierno", "Gestión ante gremios y asociaciones", "Monitoreo de agenda pública", "Posicionamiento ante tomadores de decisión"],
-    img: "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200",
-    tags: ["Relacionamiento", "Gremios", "Congreso", "Lobby"],
-  },
-  {
-    num: "02", slug: "comunicaciones",
+    num: "01", slug: "comunicaciones",
     title: "Comunicaciones Estratégicas",
     subtitle: "Construir narrativas que perduran",
     description: "Gestionamos la reputación de organizaciones y líderes a través de estrategias comunicacionales integradas que combinan relaciones con medios, vocería y posicionamiento de marca.",
     items: ["Relaciones con medios de comunicación", "Media training para voceros", "Gestión de reputación corporativa", "Comunicaciones en situaciones de cambio", "Estrategia de contenido editorial"],
     img: "https://images.unsplash.com/photo-1682617367184-5ccbda40e4a4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200",
     tags: ["Reputación", "Media Training", "Crisis PR", "Prensa"],
+  },
+  {
+    num: "02", slug: "asuntos-publicos",
+    title: "Asuntos Públicos",
+    subtitle: "Relacionamiento estratégico con poder",
+    description: "Diseñamos y ejecutamos estrategias de relacionamiento con el sector público, gremios, congresistas y entidades regulatorias para posicionar favorablemente a nuestros clientes en las decisiones que importan.",
+    items: ["Lobby legislativo y regulatorio", "Relacionamiento con entidades del gobierno", "Gestión ante gremios y asociaciones", "Monitoreo de agenda pública", "Posicionamiento ante tomadores de decisión"],
+    img: "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200",
+    tags: ["Relacionamiento", "Gremios", "Congreso", "Lobby"],
   },
   {
     num: "03", slug: "digital",
@@ -95,7 +95,19 @@ function ServiceRow({ svc, idx }: { svc: typeof SERVICES[0]; idx: number }) {
   );
 }
 
+const NAV_OFFSET = 84;
+
 export default function Servicios() {
+  const { slug } = useParams();
+
+  useEffect(() => {
+    if (!slug) return;
+    const el = document.getElementById(slug);
+    if (!el) return;
+    const y = el.getBoundingClientRect().top + window.scrollY - NAV_OFFSET;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  }, [slug]);
+
   return (
     <>
       <PageHero

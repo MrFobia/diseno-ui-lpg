@@ -3,9 +3,19 @@ import { FONT, B1, B3, GREEN, W, W40, W08 } from "../../tokens";
 
 const CITIES = [
   {
+    id: "bogota",
+    name: "Bogotá",
+    badge: "SEDE PRINCIPAL",
+    detail: "Sede de Gobierno",
+    cx: 122,
+    cy: 205,
+    anchor: "start" as const,
+    offset: 16,
+  },
+  {
     id: "cali",
     name: "Cali",
-    badge: "SEDE PRINCIPAL",
+    badge: "OFICINA VALLE",
     detail: "Valle del Cauca",
     cx: 62,
     cy: 239,
@@ -19,16 +29,6 @@ const CITIES = [
     detail: "Eje Cafetero",
     cx: 85,
     cy: 165,
-    anchor: "start" as const,
-    offset: 16,
-  },
-  {
-    id: "bogota",
-    name: "Bogotá",
-    badge: "OFICINA CAPITAL",
-    detail: "Sede de Gobierno",
-    cx: 122,
-    cy: 205,
     anchor: "start" as const,
     offset: 16,
   },

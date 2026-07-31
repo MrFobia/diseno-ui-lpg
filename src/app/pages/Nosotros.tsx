@@ -9,19 +9,19 @@ import team3 from "../../imports/LIBRETA2324.jpg";
 import team4 from "../../imports/LIBRETA2455.jpg";
 import team5 from "../../imports/LIBRETA2431 1.jpg";
 import team6 from "../../imports/LIBRETA2350.jpg";
+import team7 from "../../imports/team7-carolina-pinzon.png";
 import { FONT, B1, B3, B4, GREEN, W, W40, W08, L_BG, L_BG2, L_MID, L_RULE } from "../tokens";
 
-const BOGOTA_TEAM = [
-  { name: "Rafael Nieto Loaiza",  role: "Socio Fundador",     area: "Asuntos Públicos", tag: "Socio",     img: team1 },
-  { name: "Catalina Jaramillo",   role: "Socia Fundadora",    area: "Comunicaciones",   tag: "Socia",     img: team2 },
-  { name: "Andrés Mejía Vergara", role: "Director Ejecutivo", area: "Estrategia",       tag: "Director",  img: team3 },
-  { name: "María Fernanda Ríos",  role: "Directora Digital",  area: "LPG Tech",         tag: "Directora", img: team4 },
-];
-const CALI_TEAM = [
-  { name: "Valentina Ortega", role: "Directora Regional — Cali",    area: "LPG Media",   tag: "Directora", img: team6 },
-];
-const MEDELLIN_TEAM = [
-  { name: "Sebastián Vargas", role: "Director Regional — Medellín", area: "LPG Affairs", tag: "Director",  img: team5 },
+const TEAM = [
+  { name: "Camilo Cano",           role: "CEO",                         tag: "CEO",       img: team1 },
+  { name: "Juan Mesa",             role: "Socio Fundador",              tag: "Socio",     img: team2 },
+  { name: "Alejandra López",       role: "Directora Cali",              tag: "Directora", img: team3 },
+  { name: "Ana Bateman",           role: "Directora",                   tag: "Directora", img: team4 },
+  { name: "Leidy Guevara",         role: "Directora Administrativa",    tag: "Directora", img: team5 },
+  { name: "Claudia Peña",          role: "Directora Digital",           tag: "Directora", img: team6 },
+  { name: "Carolina Pinzón",       role: "Directora Medellín",          tag: "Directora", img: team7 },
+  { name: "Viviana Torres",        role: "Directora",                   tag: "Directora", img: null  },
+  { name: "Luz Karime Hernández",  role: "Directora",                   tag: "Directora", img: null  },
 ];
 
 const VALUES = [
@@ -32,12 +32,12 @@ const VALUES = [
 ];
 
 const OFFICE_CITIES = [
-  { name: "Cali",     badge: "Sede Principal",    since: "2004", primary: true,
-    address: "Av. 5N #23-10, Torre Empresarial, Piso 12", phone: "+57 (2) 555-0100",
-    email: "cali@libretapersonal.co", hours: "Lun–Vie 8am–6pm" },
-  { name: "Bogotá",   badge: "Oficina Capital",   since: "2010", primary: false,
+  { name: "Bogotá",   badge: "Sede Principal",    since: "2010", primary: true,
     address: "Cra 7 #71-52, Edificio Aliadas, Piso 8",   phone: "+57 (1) 555-0200",
     email: "bogota@libretapersonal.co", hours: "Lun–Vie 8am–6pm" },
+  { name: "Cali",     badge: "Oficina Valle",     since: "2004", primary: false,
+    address: "Av. 5N #23-10, Torre Empresarial, Piso 12", phone: "+57 (2) 555-0100",
+    email: "cali@libretapersonal.co", hours: "Lun–Vie 8am–6pm" },
   { name: "Medellín", badge: "Oficina Antioquia", since: "2018", primary: false,
     address: "El Poblado, Cra 43A #7-50, Of. 301",       phone: "+57 (4) 555-0300",
     email: "medellin@libretapersonal.co", hours: "Lun–Vie 8am–6pm" },
@@ -85,7 +85,7 @@ export default function Nosotros() {
                 Ser la firma latinoamericana líder en consultoría política y reputacional, reconocida por su rigor, discreción y orientación al resultado.
               </p>
               <p style={{ fontFamily: FONT, fontWeight: 300, fontSize: 16, lineHeight: 1.85, color: L_MID }}>
-                Desde Cali, operamos en todo el territorio nacional con presencia en Bogotá y Medellín, y redes de alianzas en América Latina y Europa.
+                Desde Bogotá, operamos en todo el territorio nacional con presencia en Cali y Medellín, y redes de alianzas en América Latina y Europa.
               </p>
             </div>
           </div>
@@ -124,155 +124,42 @@ export default function Nosotros() {
               <span style={{ fontFamily: FONT, fontWeight: 600, fontSize: 11, letterSpacing: "0.2em", textTransform: "uppercase", color: B3, opacity: 0.6 }}>Liderazgo</span>
             </div>
             <h2 style={{ fontFamily: FONT, fontWeight: 900, fontSize: "clamp(36px, 5.5vw, 80px)", letterSpacing: "-0.05em", lineHeight: 0.88, color: B3 }}>ESTRUCTURA<br />DE EQUIPOS.</h2>
-            <p style={{ fontFamily: FONT, fontWeight: 300, fontSize: 15, color: L_MID, marginTop: 20, maxWidth: 520, lineHeight: 1.8 }}>Un equipo directivo presente en cada ciudad donde operamos, con socios y directores especializados por región y área de práctica.</p>
+            <p style={{ fontFamily: FONT, fontWeight: 300, fontSize: 15, color: L_MID, marginTop: 20, maxWidth: 520, lineHeight: 1.8 }}>Un mismo equipo directivo, con socios y directores especializados por área de práctica — algunos con dirección en Cali y Medellín.</p>
           </div>
 
-          {/* ── BOGOTÁ ── */}
-          <div style={{ marginBottom: 2 }}>
-            {/* City header */}
-            <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "20px 32px", backgroundColor: B3, flexWrap: "wrap" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                <div style={{ width: 8, height: 8, borderRadius: "50%", backgroundColor: GREEN, flexShrink: 0 }} />
-                <span style={{ fontFamily: FONT, fontWeight: 900, fontSize: "clamp(18px, 2vw, 26px)", letterSpacing: "-0.03em", color: W }}>BOGOTÁ</span>
-              </div>
-              <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
-                <div style={{ padding: "5px 14px", backgroundColor: W08 }}>
-                  <span style={{ fontFamily: FONT, fontWeight: 600, fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", color: W }}>Sede Corporativa</span>
-                </div>
-                <span style={{ fontFamily: FONT, fontWeight: 300, fontSize: 12, color: W40 }}>Socios Fundadores · Dirección Central</span>
-              </div>
-              <div style={{ marginLeft: "auto", fontFamily: FONT, fontWeight: 300, fontSize: 12, color: W40, opacity: 0.55 }}>Desde 2010</div>
-            </div>
-            {/* Bogotá grid — 4 members */}
-            <div className="grid grid-cols-2 lg:grid-cols-4" style={{ gap: 2, backgroundColor: L_RULE }}>
-              {BOGOTA_TEAM.map((member, i) => {
-                const isSocio = member.tag === "Socio" || member.tag === "Socia";
-                const hovered = teamHov === i;
-                return (
-                  <div key={i}
-                    onMouseEnter={() => setTeamHov(i)} onMouseLeave={() => setTeamHov(null)}
-                    style={{ cursor: "pointer", backgroundColor: L_BG }}>
-                    <div style={{ aspectRatio: "3/4", overflow: "hidden", position: "relative" }}>
+          {/* ── Equipo unificado ── */}
+          <div className="grid grid-cols-2 lg:grid-cols-3" style={{ gap: 2, backgroundColor: L_RULE }}>
+            {TEAM.map((member, i) => {
+              const isHighlight = member.tag === "CEO" || member.tag === "Socio" || member.tag === "Socia";
+              const hovered = teamHov === i;
+              return (
+                <div key={i}
+                  onMouseEnter={() => setTeamHov(i)} onMouseLeave={() => setTeamHov(null)}
+                  style={{ cursor: "pointer", backgroundColor: L_BG }}>
+                  <div style={{ aspectRatio: "3/4", overflow: "hidden", position: "relative", backgroundColor: L_BG2 }}>
+                    {member.img ? (
                       <img src={member.img} alt={member.name}
                         style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", filter: hovered ? "grayscale(0)" : "grayscale(0.55)", transform: hovered ? "scale(1.04)" : "scale(1)", transition: "filter 0.5s ease, transform 0.6s ease" }} />
-                      <div style={{ position: "absolute", inset: 0, background: hovered ? `linear-gradient(to top, ${B3}CC 0%, transparent 55%)` : `linear-gradient(to top, ${B3}55 0%, transparent 40%)`, transition: "background 0.5s ease", pointerEvents: "none" }} />
-                      {/* Role tag — top left */}
-                      <div style={{ position: "absolute", top: 16, left: 16 }}>
-                        <span style={{ fontFamily: FONT, fontWeight: 700, fontSize: 9, letterSpacing: "0.16em", textTransform: "uppercase", backgroundColor: isSocio ? GREEN : `${B3}CC`, color: isSocio ? B1 : W, padding: "5px 11px" }}>{member.tag}</span>
+                    ) : (
+                      <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", padding: 20 }}>
+                        <span style={{ fontFamily: FONT, fontWeight: 600, fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", color: L_MID, opacity: 0.4, textAlign: "center" }}>Falta fotografía</span>
                       </div>
-                      {/* Area tag on hover */}
-                      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "20px 20px", opacity: hovered ? 1 : 0, transform: hovered ? "translateY(0)" : "translateY(8px)", transition: "opacity 0.3s ease, transform 0.3s ease" }}>
-                        <span style={{ fontFamily: FONT, fontWeight: 600, fontSize: 10, letterSpacing: "0.16em", textTransform: "uppercase", backgroundColor: GREEN, color: B1, padding: "4px 10px" }}>{member.area}</span>
-                      </div>
-                    </div>
-                    <div className="lpg-team-body" style={{ padding: "20px 24px", borderTop: `2px solid ${isSocio ? GREEN : L_RULE}` }}>
-                      <div style={{ fontFamily: FONT, fontWeight: 700, fontSize: "clamp(13px, 1.6vw, 17px)", letterSpacing: "-0.02em", color: B3, marginBottom: 4 }}>{member.name}</div>
-                      <div style={{ fontFamily: FONT, fontWeight: 300, fontSize: 12, color: L_MID }}>{member.role}</div>
+                    )}
+                    {member.img && <div style={{ position: "absolute", inset: 0, background: hovered ? `linear-gradient(to top, ${B3}CC 0%, transparent 55%)` : `linear-gradient(to top, ${B3}55 0%, transparent 40%)`, transition: "background 0.5s ease", pointerEvents: "none" }} />}
+                    {/* Role tag — top left */}
+                    <div style={{ position: "absolute", top: 16, left: 16 }}>
+                      <span style={{ fontFamily: FONT, fontWeight: 700, fontSize: 9, letterSpacing: "0.16em", textTransform: "uppercase", backgroundColor: isHighlight ? GREEN : `${B3}CC`, color: isHighlight ? B1 : W, padding: "5px 11px" }}>{member.tag}</span>
                     </div>
                   </div>
-                );
-              })}
-            </div>
+                  <div className="lpg-team-body" style={{ padding: "20px 24px", borderTop: `2px solid ${isHighlight ? GREEN : L_RULE}` }}>
+                    <div style={{ fontFamily: FONT, fontWeight: 700, fontSize: "clamp(13px, 1.6vw, 17px)", letterSpacing: "-0.02em", color: B3, marginBottom: 4 }}>{member.name}</div>
+                    <div style={{ fontFamily: FONT, fontWeight: 300, fontSize: 12, color: L_MID }}>{member.role}</div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
 
-          {/* ── CALI + MEDELLÍN side by side ── */}
-          <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: 2, backgroundColor: L_RULE }}>
-
-            {/* CALI */}
-            <div>
-              <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "18px 28px", backgroundColor: `${B3}E8`, flexWrap: "wrap" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                  <div style={{ width: 7, height: 7, borderRadius: "50%", backgroundColor: GREEN, flexShrink: 0 }} />
-                  <span style={{ fontFamily: FONT, fontWeight: 900, fontSize: "clamp(16px, 1.8vw, 22px)", letterSpacing: "-0.03em", color: W }}>CALI</span>
-                </div>
-                <div style={{ padding: "4px 12px", backgroundColor: GREEN }}>
-                  <span style={{ fontFamily: FONT, fontWeight: 700, fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase", color: B1 }}>Sede Principal</span>
-                </div>
-                <span style={{ fontFamily: FONT, fontWeight: 300, fontSize: 12, color: W40 }}>Directora Regional · Desde 2004</span>
-              </div>
-              <div className="grid grid-cols-1" style={{ gap: 2, backgroundColor: L_RULE }}>
-                {CALI_TEAM.map((member, i) => {
-                  const hovered = teamHov === 100 + i;
-                  return (
-                    <div key={i}
-                      onMouseEnter={() => setTeamHov(100 + i)} onMouseLeave={() => setTeamHov(null)}
-                      style={{ cursor: "pointer", backgroundColor: L_BG, display: "flex", flexDirection: "row" }}>
-                      <div style={{ width: "45%", flexShrink: 0, overflow: "hidden", position: "relative", minHeight: 260 }}>
-                        <img src={member.img} alt={member.name}
-                          style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", filter: hovered ? "grayscale(0)" : "grayscale(0.55)", transform: hovered ? "scale(1.04)" : "scale(1)", transition: "filter 0.5s ease, transform 0.6s ease" }} />
-                        <div style={{ position: "absolute", inset: 0, background: `linear-gradient(to right, transparent 60%, ${L_BG}CC)`, pointerEvents: "none" }} />
-                        <div style={{ position: "absolute", top: 16, left: 16 }}>
-                          <span style={{ fontFamily: FONT, fontWeight: 700, fontSize: 9, letterSpacing: "0.16em", textTransform: "uppercase", backgroundColor: GREEN, color: B1, padding: "5px 11px" }}>{member.tag}</span>
-                        </div>
-                      </div>
-                      <div style={{ flex: 1, padding: "32px 28px", display: "flex", flexDirection: "column", justifyContent: "center", borderLeft: `2px solid ${GREEN}` }}>
-                        <div style={{ fontFamily: FONT, fontWeight: 600, fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", color: GREEN, marginBottom: 12 }}>{member.area}</div>
-                        <div style={{ fontFamily: FONT, fontWeight: 700, fontSize: "clamp(15px, 1.8vw, 20px)", letterSpacing: "-0.02em", color: B3, marginBottom: 8 }}>{member.name}</div>
-                        <div style={{ fontFamily: FONT, fontWeight: 300, fontSize: 13, color: L_MID }}>{member.role}</div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* MEDELLÍN */}
-            <div>
-              <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "18px 28px", backgroundColor: `${B3}C8`, flexWrap: "wrap" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                  <div style={{ width: 7, height: 7, borderRadius: "50%", backgroundColor: GREEN, flexShrink: 0 }} />
-                  <span style={{ fontFamily: FONT, fontWeight: 900, fontSize: "clamp(16px, 1.8vw, 22px)", letterSpacing: "-0.03em", color: W }}>MEDELLÍN</span>
-                </div>
-                <div style={{ padding: "4px 12px", backgroundColor: W08 }}>
-                  <span style={{ fontFamily: FONT, fontWeight: 600, fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase", color: W40 }}>Oficina Antioquia</span>
-                </div>
-                <span style={{ fontFamily: FONT, fontWeight: 300, fontSize: 12, color: W40 }}>Director Regional · Desde 2018</span>
-              </div>
-              <div className="grid grid-cols-1" style={{ gap: 2, backgroundColor: L_RULE }}>
-                {MEDELLIN_TEAM.map((member, i) => {
-                  const hovered = teamHov === 200 + i;
-                  return (
-                    <div key={i}
-                      onMouseEnter={() => setTeamHov(200 + i)} onMouseLeave={() => setTeamHov(null)}
-                      style={{ cursor: "pointer", backgroundColor: L_BG, display: "flex", flexDirection: "row" }}>
-                      <div style={{ width: "45%", flexShrink: 0, overflow: "hidden", position: "relative", minHeight: 260 }}>
-                        <img src={member.img} alt={member.name}
-                          style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", filter: hovered ? "grayscale(0)" : "grayscale(0.55)", transform: hovered ? "scale(1.04)" : "scale(1)", transition: "filter 0.5s ease, transform 0.6s ease" }} />
-                        <div style={{ position: "absolute", inset: 0, background: `linear-gradient(to right, transparent 60%, ${L_BG}CC)`, pointerEvents: "none" }} />
-                        <div style={{ position: "absolute", top: 16, left: 16 }}>
-                          <span style={{ fontFamily: FONT, fontWeight: 700, fontSize: 9, letterSpacing: "0.16em", textTransform: "uppercase", backgroundColor: W08, color: W, padding: "5px 11px" }}>{member.tag}</span>
-                        </div>
-                      </div>
-                      <div style={{ flex: 1, padding: "32px 28px", display: "flex", flexDirection: "column", justifyContent: "center", borderLeft: `2px solid ${W08}` }}>
-                        <div style={{ fontFamily: FONT, fontWeight: 600, fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", color: B3, opacity: 0.5, marginBottom: 12 }}>{member.area}</div>
-                        <div style={{ fontFamily: FONT, fontWeight: 700, fontSize: "clamp(15px, 1.8vw, 20px)", letterSpacing: "-0.02em", color: B3, marginBottom: 8 }}>{member.name}</div>
-                        <div style={{ fontFamily: FONT, fontWeight: 300, fontSize: 13, color: L_MID }}>{member.role}</div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-          </div>
-
-          {/* ── BARRANQUILLA: Próximamente ── */}
-          <div style={{ marginTop: 2, display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 20, padding: "32px 40px", border: `1px dashed ${L_RULE}`, backgroundColor: L_BG }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 24, flexWrap: "wrap" }}>
-              <div>
-                <div style={{ fontFamily: FONT, fontWeight: 900, fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", color: B3, opacity: 0.25, marginBottom: 6 }}>04</div>
-                <div style={{ fontFamily: FONT, fontWeight: 900, fontSize: "clamp(22px, 2.5vw, 36px)", letterSpacing: "-0.04em", color: B3, opacity: 0.3, lineHeight: 1 }}>BARRANQUILLA</div>
-              </div>
-              <div style={{ width: 1, height: 48, backgroundColor: L_RULE }} />
-              <div>
-                <div style={{ fontFamily: FONT, fontWeight: 600, fontSize: 11, letterSpacing: "0.1em", color: B3, opacity: 0.4, marginBottom: 6 }}>Oficina Costa Atlántica</div>
-                <div style={{ fontFamily: FONT, fontWeight: 300, fontSize: 13, color: L_MID, opacity: 0.65, lineHeight: 1.6 }}>Expansión estratégica norte de Colombia</div>
-              </div>
-            </div>
-            <div style={{ padding: "10px 24px", border: `1px solid ${B3}22` }}>
-              <span style={{ fontFamily: FONT, fontWeight: 700, fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", color: B3, opacity: 0.4 }}>Próximamente · 2026</span>
-            </div>
-          </div>
 
         </div>
       </section>
@@ -318,7 +205,7 @@ export default function Nosotros() {
             </div>
             <div style={{ alignSelf: "flex-end", paddingBottom: 8 }}>
               <div style={{ fontFamily: FONT, fontWeight: 900, fontSize: 40, letterSpacing: "-0.05em", color: GREEN, lineHeight: 1 }}>3</div>
-              <div style={{ fontFamily: FONT, fontWeight: 300, fontSize: 12, letterSpacing: "0.12em", textTransform: "uppercase", color: W40, marginTop: 4 }}>Cali · Bogotá · Medellín</div>
+              <div style={{ fontFamily: FONT, fontWeight: 300, fontSize: 12, letterSpacing: "0.12em", textTransform: "uppercase", color: W40, marginTop: 4 }}>Bogotá · Cali · Medellín</div>
             </div>
           </div>
           {/* City presence cards */}

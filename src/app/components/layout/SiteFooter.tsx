@@ -25,8 +25,8 @@ const CONTENIDO = [
 ];
 
 const OFFICES = [
-  { city: "Cali",     note: "Sede Principal"    },
-  { city: "Bogotá",   note: "Oficina Capital"   },
+  { city: "Bogotá",   note: "Sede Principal"    },
+  { city: "Cali",     note: "Oficina Valle"     },
   { city: "Medellín", note: "Oficina Antioquia" },
 ];
 
@@ -212,7 +212,7 @@ export function SiteFooter() {
               © 2026 LPG · Todos los derechos reservados.
             </span>
             <span style={{ fontFamily: FONT, fontWeight: 300, fontSize: 11, color: W40, opacity: 0.5 }}>
-              Cali · Bogotá · Medellín · Colombia
+              Bogotá · Cali · Medellín · Colombia
             </span>
           </div>
         </div>

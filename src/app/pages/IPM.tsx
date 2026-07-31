@@ -33,54 +33,46 @@ export default function IPM() {
       />
 
       {/* ── Qué es el IPM ── */}
-      <section style={{ backgroundColor: L_BG }}>
-        <div className="lpg-pad" style={{ maxWidth: 1440, margin: "0 auto", paddingLeft: 48, paddingRight: 48, paddingTop: 80, paddingBottom: 80 }}>
+      <section style={{ backgroundColor: L_BG, position: "relative", overflow: "hidden" }}>
+        <div className="lpg-pad" style={{ maxWidth: 1440, margin: "0 auto", paddingLeft: 48, paddingRight: 48, paddingTop: 100, paddingBottom: 100, position: "relative" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 28 }}>
+            <div style={{ height: 1, width: 28, backgroundColor: B3, opacity: 0.3 }} />
+            <span style={{ fontFamily: FONT, fontWeight: 600, fontSize: 11, letterSpacing: "0.2em", textTransform: "uppercase", color: B3, opacity: 0.6 }}>¿Qué es el IPM?</span>
+          </div>
+
+          <h2 style={{ fontFamily: FONT, fontWeight: 900, fontSize: "clamp(36px, 6vw, 80px)", letterSpacing: "-0.05em", lineHeight: 0.88, color: B3, maxWidth: 1100, marginBottom: 56 }}>
+            INTELIGENCIA MEDIÁTICA<br />
+            AL SERVICIO DE LA ESTRATEGIA.
+          </h2>
+
           {/* Removed inline display/grid — Tailwind handles responsive */}
-          <div className="grid grid-cols-1 gap-10 items-center md:grid-cols-2 md:gap-[100px]">
-            <div>
-              <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
-                <div style={{ height: 1, width: 28, backgroundColor: B3, opacity: 0.3 }} />
-                <span style={{ fontFamily: FONT, fontWeight: 600, fontSize: 11, letterSpacing: "0.2em", textTransform: "uppercase", color: B3, opacity: 0.6 }}>¿Qué es el IPM?</span>
-              </div>
-              <h2 style={{ fontFamily: FONT, fontWeight: 900, fontSize: "clamp(32px, 5vw, 64px)", letterSpacing: "-0.05em", lineHeight: 0.9, color: B3, marginBottom: 28 }}>INTELIGENCIA MEDIÁTICA AL SERVICIO DE LA ESTRATEGIA.</h2>
-              <p style={{ fontFamily: FONT, fontWeight: 300, fontSize: 17, lineHeight: 1.85, color: L_MID, marginBottom: 24 }}>
+          <div className="grid grid-cols-1 gap-14 md:grid-cols-12 md:gap-10" style={{ alignItems: "start" }}>
+            {/* Body copy */}
+            <div className="md:col-span-7" style={{ borderTop: `1px solid ${L_RULE}`, paddingTop: 32 }}>
+              <p style={{ fontFamily: FONT, fontWeight: 300, fontSize: 19, lineHeight: 1.75, color: L_MID, marginBottom: 26 }}>
                 El <strong style={{ fontWeight: 700, color: B3 }}>Índice de Presencia en Medios (IPM)</strong> es una metodología propietaria de LPG que cuantifica y cualifica la presencia de organizaciones y líderes en el ecosistema mediático colombiano.
               </p>
-              <p style={{ fontFamily: FONT, fontWeight: 300, fontSize: 17, lineHeight: 1.85, color: L_MID, marginBottom: 40 }}>
+              <p style={{ fontFamily: FONT, fontWeight: 300, fontSize: 19, lineHeight: 1.75, color: L_MID }}>
                 Más allá del conteo de menciones, el IPM mide sentimiento, relevancia del medio, posición en la nota y evolución temporal para darte una visión estratégica de tu reputación mediática.
               </p>
-              <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-                {["800+ Medios monitoreados", "Análisis de sentimiento IA", "Reportes mensuales", "Benchmark sectorial"].map(tag => (
-                  <span key={tag} style={{ fontFamily: FONT, fontWeight: 600, fontSize: 10, letterSpacing: "0.12em", textTransform: "uppercase", backgroundColor: GREEN, color: B3, padding: "6px 14px" }}>{tag}</span>
-                ))}
-              </div>
             </div>
 
-            {/* Visual IPM score mockup */}
-            <div className="lpg-ipm-mock" style={{ backgroundColor: L_BG2, padding: "48px", border: `1px solid ${L_RULE}`, position: "relative" }}>
-              <div style={{ fontFamily: FONT, fontWeight: 300, fontSize: 11, letterSpacing: "0.2em", textTransform: "uppercase", color: B3, opacity: 0.5, marginBottom: 24 }}>IPM Score — Ejemplo</div>
+            {/* Feature stats — replaces the score-card mockup */}
+            <div className="md:col-span-5" style={{ borderTop: `1px solid ${L_RULE}` }}>
               {[
-                { org: "Tu organización",    score: 87, trend: "+12%" },
-                { org: "Competidor A",       score: 64, trend: "+3%"  },
-                { org: "Competidor B",       score: 71, trend: "-5%"  },
-                { org: "Promedio sectorial", score: 58, trend: "+1%"  },
-              ].map((row, i) => (
-                <div key={i} style={{ marginBottom: 20 }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
-                    <span style={{ fontFamily: FONT, fontWeight: i === 0 ? 700 : 300, fontSize: 13, color: i === 0 ? B3 : L_MID }}>{row.org}</span>
-                    <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
-                      <span style={{ fontFamily: FONT, fontWeight: 900, fontSize: 16, letterSpacing: "-0.03em", color: i === 0 ? B3 : L_MID }}>{row.score}</span>
-                      <span style={{ fontFamily: FONT, fontWeight: 600, fontSize: 11, color: row.trend.startsWith("+") ? "#22C55E" : "#EF4444" }}>{row.trend}</span>
-                    </div>
-                  </div>
-                  <div style={{ height: 4, backgroundColor: `${B3}12`, position: "relative" }}>
-                    <div style={{ height: "100%", width: `${row.score}%`, backgroundColor: i === 0 ? GREEN : `${B3}33`, transition: "width 1s ease" }} />
-                  </div>
+                { n: "800+",     l: "Medios monitoreados" },
+                { n: "IA",       l: "Análisis de sentimiento" },
+                { n: "Mensual",  l: "Entrega de reportes" },
+                { n: "Sectorial", l: "Benchmark competitivo" },
+              ].map((f, i) => (
+                <div key={f.l} style={{
+                  display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 16,
+                  padding: "22px 0", borderBottom: `1px solid ${L_RULE}`,
+                }}>
+                  <span style={{ fontFamily: FONT, fontWeight: 900, fontSize: "clamp(22px, 2.4vw, 30px)", letterSpacing: "-0.03em", color: B3, flexShrink: 0 }}>{f.n}</span>
+                  <span style={{ fontFamily: FONT, fontWeight: 400, fontSize: 14, letterSpacing: "0.02em", color: L_MID, textAlign: "right" }}>{f.l}</span>
                 </div>
               ))}
-              <div style={{ marginTop: 28, padding: "16px 20px", backgroundColor: `${GREEN}22`, border: `1px solid ${GREEN}55` }}>
-                <span style={{ fontFamily: FONT, fontWeight: 600, fontSize: 12, color: B3 }}>Tu IPM Score puede mejorar con la estrategia correcta.</span>
-              </div>
             </div>
           </div>
         </div>

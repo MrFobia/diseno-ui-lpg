@@ -6,7 +6,7 @@ import { FONT, B1, B3, B4, GREEN, W, W40, W08, L_BG, L_BG2, L_MID, L_RULE } from
 
 const OFFICES = [
   { city: "Bogotá", label: "Sede Principal", address: "Cra 7 #71-52, Edificio Aliadas, Piso 8", phone: "+57 (1) 555-0200", email: "bogota@libretapersonal.co", hours: "Lun–Vie 8am–6pm" },
-  { city: "Cali", label: "Oficina Cali", address: "Av. 5N #23-10, Torre Empresarial, Piso 12", phone: "+57 (2) 555-0100", email: "cali@libretapersonal.co", hours: "Lun–Vie 8am–6pm" },
+  { city: "Cali", label: "Oficina Valle", address: "Av. 5N #23-10, Torre Empresarial, Piso 12", phone: "+57 (2) 555-0100", email: "cali@libretapersonal.co", hours: "Lun–Vie 8am–6pm" },
   { city: "Medellín", label: "Oficina Antioquia", address: "El Poblado, Cra 43A #7-50, Of. 301", phone: "+57 (4) 555-0300", email: "medellin@libretapersonal.co", hours: "Lun–Vie 8am–6pm" },
 ];
 
@@ -145,9 +145,9 @@ export default function Contacto() {
             {OFFICES.map((o, i) => (
               <div key={i} onMouseEnter={() => setOffHov(i)} onMouseLeave={() => setOffHov(null)}
                 style={{ backgroundColor: offHov === i ? B3 : L_BG, padding: "48px 40px", transition: "background 0.25s", cursor: "default" }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 20 }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 12, marginBottom: 20 }}>
                   <h3 style={{ fontFamily: FONT, fontWeight: 900, fontSize: "clamp(28px, 4vw, 48px)", letterSpacing: "-0.05em", color: offHov === i ? W : B3, lineHeight: 1, transition: "color 0.25s" }}>{o.city.toUpperCase()}</h3>
-                  <span style={{ fontFamily: FONT, fontWeight: 600, fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", backgroundColor: GREEN, color: B3, padding: "4px 10px", marginTop: 6 }}>{o.label}</span>
+                  <span style={{ fontFamily: FONT, fontWeight: 600, fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", backgroundColor: GREEN, color: B3, padding: "4px 10px", marginTop: 6, textAlign: "right", whiteSpace: "nowrap", flexShrink: 0 }}>{o.label}</span>
                 </div>
                 {[
                   { l: "Dirección", v: o.address },

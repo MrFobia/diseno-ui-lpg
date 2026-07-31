@@ -6,17 +6,17 @@ import { Logo } from "../shared/Logo";
 const SERVICES_MENU = [
   {
     num: "01",
-    title: "Asuntos Públicos",
-    href: "/servicios/asuntos-publicos",
-    desc: "Lobby legislativo, gremios y relacionamiento institucional.",
-    tags: ["Congreso", "Gremios", "Gobierno"],
-  },
-  {
-    num: "02",
     title: "Comunicaciones Estratégicas",
     href: "/servicios/comunicaciones",
     desc: "Reputación corporativa, media training y relaciones con medios.",
     tags: ["Reputación", "Prensa", "Vocería"],
+  },
+  {
+    num: "02",
+    title: "Asuntos Públicos",
+    href: "/servicios/asuntos-publicos",
+    desc: "Lobby legislativo, gremios y relacionamiento institucional.",
+    tags: ["Congreso", "Gremios", "Gobierno"],
   },
   {
     num: "03",
@@ -50,7 +50,7 @@ export function SiteNav() {
   const [mobSvcOpen, setMobSvcOpen]     = useState(true);
   const [svcHov, setSvcHov]             = useState<number | null>(null);
   const location = useLocation();
-  const megaRef = useRef<HTMLDivElement>(null);
+  const megaRef = useRef<HTMLElement>(null);
 
   const isHome = location.pathname === "/";
 
@@ -92,7 +92,7 @@ export function SiteNav() {
   const navBorder = scrolled || !isHome || isMobile ? `1px solid ${W08}` : "none";
 
   return (
-    <nav style={{
+    <nav ref={megaRef} style={{
       position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000,
       backgroundColor: navBg,
       backdropFilter: navBlur,
@@ -114,7 +114,7 @@ export function SiteNav() {
           {(() => {
             const svcActive = location.pathname.startsWith("/servicios");
             return (
-              <div ref={megaRef} style={{ position: "relative" }}>
+              <div style={{ position: "relative" }}>
                 <button onClick={toggleMega} style={{
                   fontFamily: FONT, fontWeight: 500, fontSize: 12,
                   letterSpacing: "0.08em", textTransform: "uppercase",
