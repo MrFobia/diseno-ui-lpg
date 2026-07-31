@@ -54,14 +54,11 @@ export default function Home() {
         <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=2000" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", filter: "brightness(0.4) saturate(0.85)" }} />
         <div style={{ position: "absolute", inset: 0, pointerEvents: "none", background: `radial-gradient(ellipse 90% 70% at 10% 20%, ${B4}55 0%, transparent 65%), radial-gradient(ellipse 60% 50% at 85% 75%, ${B3}66 0%, transparent 60%)` }} />
         <div style={{ position: "absolute", inset: 0, pointerEvents: "none", backgroundImage: `repeating-linear-gradient(0deg, transparent, transparent 3px, ${W04} 3px, ${W04} 4px)` }} />
-        <div className="hidden md:flex" style={{ position: "absolute", top: 68, right: 48, alignItems: "center", gap: 16 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-            <div style={{ width: 5, height: 5, borderRadius: "50%", backgroundColor: GREEN }} />
-            <span style={{ fontFamily: FONT, fontWeight: 400, fontSize: 11, letterSpacing: "0.22em", textTransform: "uppercase", color: W40 }}>Firma de consultoría estratégica</span>
-          </div>
-          <Link to="/home-2" style={{ fontFamily: FONT, fontWeight: 700, fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: B1, backgroundColor: GREEN, padding: "6px 12px", textDecoration: "none" }}>Ver diseño 2 →</Link>
+        <div className="hidden md:flex" style={{ position: "absolute", top: 68, right: 48, alignItems: "center", gap: 10 }}>
+          <div style={{ width: 5, height: 5, borderRadius: "50%", backgroundColor: GREEN }} />
+          <span style={{ fontFamily: FONT, fontWeight: 400, fontSize: 11, letterSpacing: "0.22em", textTransform: "uppercase", color: W40 }}>Firma de consultoría estratégica</span>
         </div>
-        <div style={{ maxWidth: 1440, width: "100%", margin: "0 auto", paddingTop: 120 }}>
+        <div style={{ maxWidth: 1440, width: "100%", margin: "0 auto", paddingTop: 120, position: "relative", zIndex: 1 }}>
           <div style={{ opacity: in_ ? 1 : 0, transform: in_ ? "translateY(0)" : "translateY(32px)", transition: "opacity 1.2s cubic-bezier(.16,1,.3,1), transform 1.2s cubic-bezier(.16,1,.3,1)" }}>
             <h1 style={{ fontFamily: FONT, fontWeight: 900, fontSize: "clamp(48px, 7vw, 100px)", lineHeight: 0.9, letterSpacing: "-0.04em", color: W, margin: 0, userSelect: "none" }}>
               <span style={{ display: "block" }}>ESTRATEGIA</span>
@@ -70,7 +67,7 @@ export default function Home() {
               <span style={{ display: "block", color: GREEN }}>REAL.</span>
             </h1>
           </div>
-          <div style={{ marginTop: 60, borderTop: `1px solid ${W08}`, paddingTop: 28, display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: 24 }}>
+          <div style={{ marginTop: 60, borderTop: `1px solid ${W08}`, paddingTop: 28, display: "flex", alignItems: "flex-end", flexWrap: "wrap", gap: 24 }}>
             <div style={{ display: "flex", gap: 32 }}>
               {[{ n: "20+", l: "Años" }, { n: "200+", l: "Clientes" }, { n: "3", l: "Ciudades" }].map(({ n, l }) => (
                 <div key={l}>
@@ -80,6 +77,11 @@ export default function Home() {
               ))}
             </div>
           </div>
+          <Link to="/home-2" style={{ display: "inline-block", alignSelf: "flex-start", marginTop: 28, fontFamily: FONT, fontWeight: 500, fontSize: 12, letterSpacing: "0.08em", textTransform: "uppercase", color: W, textDecoration: "none", borderBottom: `1px solid ${W}55`, paddingBottom: 3, transition: "color 0.2s, border-color 0.2s" }}
+            onMouseEnter={e => { e.currentTarget.style.color = GREEN; e.currentTarget.style.borderColor = `${GREEN}88`; }}
+            onMouseLeave={e => { e.currentTarget.style.color = W; e.currentTarget.style.borderColor = `${W}55`; }}>
+            Ver diseño 2 →
+          </Link>
         </div>
       </section>
 
@@ -235,14 +237,14 @@ export default function Home() {
           {/* Removed inline display/gridTemplateColumns — Tailwind responsive classes handle layout */}
           <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: 40 }}>
             {INS.map((item, i) => (
-              <div key={i} onMouseEnter={() => setInsHov(i)} onMouseLeave={() => setInsHov(null)} style={{ cursor: "pointer" }}>
+              <div key={i} onMouseEnter={() => setInsHov(i)} onMouseLeave={() => setInsHov(null)} style={{ cursor: "pointer", display: "flex", flexDirection: "column", height: "100%" }}>
                 <div style={{ aspectRatio: "4/3", overflow: "hidden", position: "relative", backgroundColor: "#111" }}>
                   <img src={item.img} alt={item.title} style={{ width: "100%", height: "100%", objectFit: "cover", filter: `brightness(${insHov === i ? 0.95 : 0.78}) saturate(${insHov === i ? 1 : 0.7})`, transform: insHov === i ? "scale(1.05)" : "scale(1)", transition: "filter 0.5s ease, transform 0.6s ease" }} />
                   <div style={{ position: "absolute", inset: 0, background: `linear-gradient(160deg, ${B3}${insHov === i ? "11" : "33"} 0%, transparent 80%)`, transition: "background 0.5s ease" }} />
                 </div>
-                <div style={{ padding: "24px 0", borderBottom: `1px solid #00000014` }}>
+                <div style={{ padding: "24px 0", borderBottom: `1px solid #00000014`, display: "flex", flexDirection: "column", flex: 1 }}>
                   <div style={{ fontFamily: FONT, fontWeight: 600, fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", color: B3, marginBottom: 10 }}>{item.cat}</div>
-                  <h3 style={{ fontFamily: FONT, fontWeight: 700, fontSize: "clamp(16px, 1.8vw, 22px)", letterSpacing: "-0.02em", lineHeight: 1.25, color: "#0a0a0a", marginBottom: 16 }}>{item.title}</h3>
+                  <h3 style={{ fontFamily: FONT, fontWeight: 700, fontSize: "clamp(16px, 1.8vw, 22px)", letterSpacing: "-0.02em", lineHeight: 1.25, color: "#0a0a0a", marginBottom: 16, flex: 1 }}>{item.title}</h3>
                   <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                     <span style={{ fontFamily: FONT, fontWeight: 300, fontSize: 12, color: "#00000059" }}>{item.date}</span>
                     <span style={{ fontFamily: FONT, fontWeight: 500, fontSize: 12, letterSpacing: "0.08em", textTransform: "uppercase", color: insHov === i ? B3 : "#00000059", transition: "color 0.2s" }}>Leer →</span>
