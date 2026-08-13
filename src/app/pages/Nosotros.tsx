@@ -10,18 +10,29 @@ import team4 from "../../imports/LIBRETA2455.jpg";
 import team5 from "../../imports/LIBRETA2431 1.jpg";
 import team6 from "../../imports/LIBRETA2350.jpg";
 import team7 from "../../imports/team7-carolina-pinzon.png";
+import team8 from "../../imports/LIBRETA2250 1.jpg";
+import team9 from "../../imports/team9-luz-karime-hernandez.png";
 import { FONT, B1, B3, B4, GREEN, W, W40, W08, L_BG, L_BG2, L_MID, L_RULE } from "../tokens";
 
 const TEAM = [
-  { name: "Camilo Cano",           role: "CEO",                         tag: "CEO",       img: team1 },
-  { name: "Juan Mesa",             role: "Socio Fundador",              tag: "Socio",     img: team2 },
-  { name: "Alejandra López",       role: "Directora Cali",              tag: "Directora", img: team3 },
-  { name: "Ana Bateman",           role: "Directora",                   tag: "Directora", img: team4 },
-  { name: "Leidy Guevara",         role: "Directora Administrativa",    tag: "Directora", img: team6 },
-  { name: "Claudia Peña",          role: "Directora Digital",           tag: "Directora", img: team5 },
-  { name: "Carolina Pinzón",       role: "Directora Medellín",          tag: "Directora", img: team7 },
-  { name: "Viviana Torres",        role: "Directora",                   tag: "Directora", img: null  },
-  { name: "Luz Karime Hernández",  role: "Directora",                   tag: "Directora", img: null  },
+  { name: "Camilo Cano",           role: "CEO",                         tag: "CEO",       img: team1,
+    bio: "Estudió finanzas y relaciones internacionales en la Universidad Externado de Colombia e hizo estudios de postgrado en ciencias políticas en la Universidad La Sorbona en París. Ha sido reportero, corresponsal internacional y editor en jefe de la sección internacional del periódico El Espectador, Premio Nacional de Periodismo Simón Bolívar, productor de Caracol Radio, productor ejecutivo de televisión, director de recursos corporativos de Comunican Multimedios, vicepresidente de información e internacional de Caracol Televisión, asesor de RCNTV y presidente del Canal 8, WGEN-TV en La Florida. Miembro de varias juntas directivas, ha sido asesor por más de 20 años en estrategias de comunicación y actualmente se especializa en comunicaciones off y on line, crisis y reputación." },
+  { name: "Juan Mesa",             role: "Socio Fundador",              tag: "Socio",     img: team2,
+    bio: "Abogado, con más de 20 años de experiencia en el diseño y puesta en marcha de estrategias integrales de comunicaciones para clientes públicos y privados. Ocupó la vicepresidencia de Caracol Radio durante siete años y ha sido consultor de entidades públicas y privadas. Entre otros cargos se ha desempeñado como Embajador de Colombia ante el Gobierno de la República Italiana, la FAO y el Programa Mundial de Alimentos. Fue secretario privado de la Presidencia de la República; Alto Consejero para las Comunicaciones y Secretario General del Departamento Administrativo de la Presidencia de la República. También se desempeñó como director del Instituto de Ciencia Política y la Fundación Buen Gobierno y miembro de varias juntas." },
+  { name: "Alejandra López",       role: "Directora Cali",              tag: "Directora", img: team3,
+    bio: "Comunicadora Social - Periodista con estudios en arte, humanidades y escritura creativa. Cuenta con 15 años de experiencia en planeación, desarrollo y ejecución de estrategias de comunicación orientadas a fortalecer el posicionamiento y reputación de distintos gremios y organizaciones del sector azucarero, portuario, aeronáutico, constructor, salud, cultura, educación, telecomunicaciones, entre otros. Con amplia experiencia en manejo de crisis, entrenamiento de vocería y relacionamiento de alto nivel con medios de comunicación de impacto nacional y regional. Periodista, colaboradora habitual de medios como El Tiempo, El Espectador y revistas SOHO, DONJUAN y BOCAS. Tiene 3 libros publicados y ha escrito artículos para DONJUAN, Bocas, Soho, Esquire, ET, EE y Semana." },
+  { name: "Ana Bateman",           role: "Directora",                   tag: "Directora", img: team4,
+    bio: "Especialista en Opinión Pública y Mercadeo Político de la Universidad Javeriana. Comunicadora Social y Periodista con más de 20 años de experiencia desarrollando e implementando estrategias de comunicación, relacionamiento de impacto en las audiencias de interés y gestionando el manejo de crisis comunicacionales. Su experiencia profesional incluye a Caracol Televisión, Casa Editorial el Tiempo y Meca Sports." },
+  { name: "Leidy Guevara",         role: "Directora Administrativa",    tag: "Directora", img: team6,
+    bio: null },
+  { name: "Claudia Peña",          role: "Directora Digital",           tag: "Directora", img: team5,
+    bio: "Profesional en Comunicación Social, con Máster en Marketing Digital, Analítica Web y Experiencia de Usuario (UX). Cuenta con más de 20 años de experiencia liderando el diseño e implementación de estrategias de marketing digital y redes sociales para organizaciones de diversos sectores. Ha trabajado con marcas y empresas como Corficolombiana, Coca-Cola, TGI, Nestlé MILO®, Proambiental, entre otras, desarrollando estrategias orientadas al posicionamiento de marca, la gestión de la reputación corporativa y el cumplimiento de objetivos de negocio mediante el uso de datos, creatividad e innovación." },
+  { name: "Carolina Pinzón",       role: "Directora Medellín",          tag: "Directora", img: team7,
+    bio: "Comunicadora y relacionista corporativa, Especialista en Cooperación Internacional. Cuenta con una experiencia de más de 20 años en procesos de comunicación estratégica en diferentes entidades, en comunicación digital y manejo de crisis. Se ha desempeñado, entre otros cargos, como Jefe de comunicaciones del Área Metropolitana del Valle de Aburrá, coordinadora digital de la Alcaldía de Medellín, comunicadora en la Alcaldía de Envigado, el Ministerio del Interior, el Congreso de la República, la Escuela de Gobierno y Políticas Públicas de Antioquia y asesora de agencias de servicios digitales en Medellín." },
+  { name: "Viviana Torres",        role: "Directora",                   tag: "Directora", img: team8,
+    bio: "Comunicadora Social y Especialista en Mercadeo Estratégico con amplia experiencia liderando estrategias de comunicación corporativa, reputación y relaciones públicas para multinacionales y empresas referentes en sectores como construcción, automotriz, consumo y servicios públicos, así como para gremios de primer nivel en Colombia. Experta en gestión de crisis, relacionamiento con medios, entrenamiento de voceros y construcción de narrativas para entornos de alta complejidad. Reconocida por integrar comunicación, mercadeo y visión de negocio para traducir objetivos corporativos en estrategias que fortalecen la reputación, gestionan el riesgo y generan visibilidad e influencia ante audiencias clave." },
+  { name: "Luz Karime Hernández",  role: "Directora",                   tag: "Directora", img: team9,
+    bio: "Comunicadora social y periodista con más de diez años de experiencia en comunicación estratégica y relacionamiento con medios. Ha trabajado como consultora en agencias de comunicaciones y en la Secretaría de Prensa de la Presidencia de la República, donde participó en la organización de eventos nacionales e internacionales como la visita del papa Francisco y la firma del Acuerdo de Paz con las extintas FARC. Cuenta con experiencia en el diseño y ejecución de estrategias de comunicación para organizaciones de los sectores financiero, infraestructura, energía, construcción sostenible, educación y turismo, además de la redacción de mensajes clave, el análisis de medios y el manejo de crisis." },
 ];
 
 const VALUES = [
@@ -150,6 +161,19 @@ export default function Nosotros() {
                     <div style={{ position: "absolute", top: 16, left: 16 }}>
                       <span style={{ fontFamily: FONT, fontWeight: 700, fontSize: 9, letterSpacing: "0.16em", textTransform: "uppercase", backgroundColor: isHighlight ? GREEN : `${B3}CC`, color: isHighlight ? B1 : W, padding: "5px 11px" }}>{member.tag}</span>
                     </div>
+                    {/* Bio overlay — shown on hover */}
+                    {member.bio && (
+                      <div style={{
+                        position: "absolute", inset: 0, backgroundColor: `${B3}F2`, padding: "28px 24px",
+                        display: "flex", flexDirection: "column", justifyContent: "center", overflowY: "auto",
+                        opacity: hovered ? 1 : 0, transform: hovered ? "translateY(0)" : "translateY(8px)",
+                        transition: "opacity 0.35s ease, transform 0.35s ease",
+                        pointerEvents: hovered ? "auto" : "none",
+                      }}>
+                        <div style={{ fontFamily: FONT, fontWeight: 700, fontSize: 13, letterSpacing: "-0.01em", color: GREEN, marginBottom: 10 }}>{member.name}</div>
+                        <p style={{ fontFamily: FONT, fontWeight: 300, fontSize: 12, lineHeight: 1.7, color: `${W}E6` }}>{member.bio}</p>
+                      </div>
+                    )}
                   </div>
                   <div className="lpg-team-body" style={{ padding: "20px 24px", borderTop: `2px solid ${isHighlight ? GREEN : L_RULE}` }}>
                     <div style={{ fontFamily: FONT, fontWeight: 700, fontSize: "clamp(13px, 1.6vw, 17px)", letterSpacing: "-0.02em", color: B3, marginBottom: 4 }}>{member.name}</div>
