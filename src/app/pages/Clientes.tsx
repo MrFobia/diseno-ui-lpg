@@ -2,21 +2,11 @@ import { useState } from "react";
 import { Link } from "react-router";
 import { PageHero } from "../components/shared/PageHero";
 import { Glow } from "../components/shared/Glow";
-import imgImage7  from "figma:asset/bd21e4585058a11ee89e9cf7050e49a42354e8ac.png";
-import imgImage8  from "figma:asset/1767607241abc52169a2bd0ebf66da07caadafb8.png";
-import imgImage10 from "figma:asset/7e9f55395db7bd43342554504b29542a170e78af.png";
-import imgImage11 from "figma:asset/6459023d70fcf70fb7d2ffca7e6a167a799ec350.png";
-import imgImage12 from "figma:asset/d45ed9d48079beb24fb13502d9dabe1877e7c467.png";
-import imgImage13 from "figma:asset/c2eedb428f18321379e0dd531164b1cf10db2ec6.png";
 import imgPersona from "figma:asset/25a2d6a5fa7ba5e46df1b52c9355918f1cddea84.png";
+import { SECTOR_LOGOS } from "../data/clientLogos";
 import { FONT, B1, B3, B4, GREEN, W, W40, W08, L_BG, L_BG2, L_TEXT, L_MID, L_RULE } from "../tokens";
 
-const SECTORS = [
-  { name: "Gobierno y Sector Público",       logos: [imgImage7,  imgImage8,  imgImage10] },
-  { name: "Finanzas y Banca",                logos: [imgImage11, imgImage12, imgImage13] },
-  { name: "Construcción e Infraestructura",  logos: [imgImage7,  imgImage11, imgImage8]  },
-  { name: "Salud y Farmacéutico",            logos: [imgImage10, imgImage12, imgImage13] },
-];
+const SECTORS = SECTOR_LOGOS;
 
 const TESTIMONIALS = [
   { quote: "LPG transformó nuestra estrategia de relacionamiento con el Congreso. Los resultados en seis meses superaron lo que logramos en años anteriores.", name: "Carlos A. Mejía",  role: "CEO · Constructora Nacional",      img: imgPersona },
@@ -62,10 +52,12 @@ export default function Clientes() {
               {/* lpg-logo-row reduces gap from 64px → 32px on mobile */}
               <div className="lpg-logo-row" style={{ display: "flex", alignItems: "center", gap: 64, flexWrap: "wrap" }}>
                 {sec.logos.map((src, j) => (
-                  <img key={j} src={src} alt=""
-                    style={{ height: 32, objectFit: "contain", filter: "grayscale(1)", opacity: 0.35, maxWidth: 120, transition: "opacity 0.2s, filter 0.2s" }}
-                    onMouseEnter={e => { (e.currentTarget as HTMLImageElement).style.opacity = "0.7"; (e.currentTarget as HTMLImageElement).style.filter = "grayscale(0)"; }}
-                    onMouseLeave={e => { (e.currentTarget as HTMLImageElement).style.opacity = "0.35"; (e.currentTarget as HTMLImageElement).style.filter = "grayscale(1)"; }} />
+                  <div key={j} style={{ width: 120, height: 40, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                    <img src={src} alt=""
+                      style={{ maxHeight: "100%", maxWidth: "100%", objectFit: "contain", filter: "grayscale(1) brightness(0)", opacity: 0.35, transition: "opacity 0.2s, filter 0.2s" }}
+                      onMouseEnter={e => { (e.currentTarget as HTMLImageElement).style.opacity = "0.7"; (e.currentTarget as HTMLImageElement).style.filter = "grayscale(0)"; }}
+                      onMouseLeave={e => { (e.currentTarget as HTMLImageElement).style.opacity = "0.35"; (e.currentTarget as HTMLImageElement).style.filter = "grayscale(1) brightness(0)"; }} />
+                  </div>
                 ))}
               </div>
             </div>

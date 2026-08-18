@@ -1,15 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router";
-import logoCocaCola   from "../../assets/logos/coca-cola.svg";
-import logoCorfi      from "../../assets/logos/corfi.svg";
-import logoCajaSocial from "../../assets/logos/banco-caja-social.svg";
-import logoUan        from "../../assets/logos/uan.svg";
-import logoGrupoAval  from "../../assets/logos/grupo-aval.png";
-import logoCcCali     from "../../assets/logos/camara-comercio-cali.svg";
-import logoCamacol    from "../../assets/logos/camacol.png";
-import logoCarvajal   from "../../assets/logos/carvajal.svg";
-import logoColmena    from "../../assets/logos/colmena.png";
-import logoEstelar    from "../../assets/logos/estelar.png";
+import { ALL_LOGOS } from "../data/clientLogos";
 import imgPersona from "figma:asset/25a2d6a5fa7ba5e46df1b52c9355918f1cddea84.png";
 import imgOffice  from "figma:asset/730840829b225cbc4017ffdb4809631bf68e48f0.png";
 import { FONT, B0, B1, B3, B4, GREEN, W, W40, W08, W04 } from "../tokens";
@@ -40,8 +31,7 @@ export default function Home() {
   const [in_, setIn] = useState(false);
   const [svcHov, setSvcHov] = useState<number | null>(null);
   const [insHov, setInsHov] = useState<number | null>(null);
-  const logos = [logoCocaCola, logoCorfi, logoCajaSocial, logoUan, logoGrupoAval, logoCcCali, logoCamacol, logoCarvajal, logoColmena, logoEstelar];
-  const allLogos = [...logos, ...logos, ...logos];
+  const allLogos = [...ALL_LOGOS, ...ALL_LOGOS, ...ALL_LOGOS];
 
   useEffect(() => { const t = setTimeout(() => setIn(true), 100); return () => clearTimeout(t); }, []);
 
@@ -92,8 +82,12 @@ export default function Home() {
           <span style={{ fontFamily: FONT, fontWeight: 500, fontSize: 11, letterSpacing: "0.22em", textTransform: "uppercase", color: "rgba(0,0,0,0.35)" }}>Confían en nosotros</span>
         </div>
         <div style={{ display: "flex", overflow: "hidden" }}>
-          <div style={{ display: "flex", gap: 80, alignItems: "center", animation: "lpgMq 28s linear infinite", willChange: "transform", flexShrink: 0 }}>
-            {allLogos.map((src, i) => (<img key={i} src={src} alt="" style={{ height: 26, objectFit: "contain", filter: "grayscale(1) brightness(0)", opacity: 0.35, flexShrink: 0, maxWidth: 110 }} />))}
+          <div style={{ display: "flex", gap: 80, alignItems: "center", animation: "lpgMq 70s linear infinite", willChange: "transform", flexShrink: 0 }}>
+            {allLogos.map((src, i) => (
+              <div key={i} style={{ width: 100, height: 32, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                <img src={src} alt="" style={{ maxHeight: "100%", maxWidth: "100%", objectFit: "contain", filter: "grayscale(1) brightness(0)", opacity: 0.35 }} />
+              </div>
+            ))}
           </div>
         </div>
       </section>
