@@ -19,7 +19,8 @@ const EMPRESA = [
 
 const CONTENIDO = [
   { label: "Thought Leadership", to: "/thought-leadership"          },
-  { label: "Blog",               to: "/thought-leadership#blog"     },
+  { label: "Insights",           to: "/thought-leadership/insights" },
+  { label: "Blog",               to: "/thought-leadership/blog"     },
   { label: "Podcast",            to: "/thought-leadership#podcast"  },
   { label: "Recursos",           to: "/thought-leadership#recursos" },
 ];

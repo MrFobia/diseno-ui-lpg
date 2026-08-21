@@ -10,6 +10,14 @@ import ThoughtLeadership from "./pages/ThoughtLeadership";
 import Sectores from "./pages/Sectores";
 import Contacto from "./pages/Contacto";
 import Agendar from "./pages/Agendar";
+import { InsightsListing, BlogListing } from "./pages/ContentListing";
+import ArticleDetail from "./pages/ArticleDetail";
+import { Navigate, useParams } from "react-router";
+
+function RedirectSlug({ base }: { base: string }) {
+  const { slug } = useParams();
+  return <Navigate to={`${base}/${slug}`} replace />;
+}
 
 function NotFound() {
   return (
@@ -33,6 +41,16 @@ export const router = createBrowserRouter([
       { path: "ipm", Component: IPM },
       { path: "nosotros", Component: Nosotros },
       { path: "thought-leadership", Component: ThoughtLeadership },
+      // Insights y Blog son subsecciones de Liderazgo
+      { path: "thought-leadership/insights", Component: InsightsListing },
+      { path: "thought-leadership/insights/:slug", Component: ArticleDetail },
+      { path: "thought-leadership/blog", Component: BlogListing },
+      { path: "thought-leadership/blog/:slug", Component: ArticleDetail },
+      // Alias antiguos
+      { path: "insights", element: <Navigate to="/thought-leadership/insights" replace /> },
+      { path: "insights/:slug", element: <RedirectSlug base="/thought-leadership/insights" /> },
+      { path: "blog", element: <Navigate to="/thought-leadership/blog" replace /> },
+      { path: "blog/:slug", element: <RedirectSlug base="/thought-leadership/blog" /> },
       { path: "sectores", Component: Sectores },
       { path: "sectores/:slug", Component: Sectores },
       { path: "contacto", Component: Contacto },

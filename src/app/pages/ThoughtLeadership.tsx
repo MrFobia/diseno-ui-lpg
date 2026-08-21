@@ -4,39 +4,10 @@ import { PageHero } from "../components/shared/PageHero";
 import { Glow } from "../components/shared/Glow";
 import { FONT, B1, B3, B4, GREEN, W, W40, W08, L_BG, L_BG2, L_MID, L_RULE } from "../tokens";
 
-// Import Insights images
-import imgInsight1 from "../../imports/Insights/9a5bd58bc01893753ade002704001ff74440e83a.png";
-import imgInsight2 from "../../imports/Insights/cfe288b7268464bab47a67ed8d2bf94a27257a04.png";
-import imgInsight3 from "../../imports/Insights/2346892e5e6291109c726933699bf46d2d34ddc7.png";
+import { INSIGHT_ARTICLES, BLOG_ARTICLES, articlePath } from "../data/content";
 
-const INSIGHTS = [
-  {
-    cat: "AI & MANAGEMENT",
-    title: "IA en la gestión de crisis reputacionales",
-    date: "Marzo 2026",
-    img: imgInsight1
-  },
-  {
-    cat: "PODCAST",
-    title: "Diálogos de Reputación con líderes de Colombia",
-    date: "Febrero 2026",
-    img: imgInsight2
-  },
-  {
-    cat: "RECURSO",
-    title: "Guía definitiva para el manejo de crisis corporativas",
-    date: "Enero 2026",
-    img: imgInsight3
-  },
-];
-
-const BLOG_POSTS = [
-  { cat: "Asuntos Públicos", title: "Cómo preparar a tu organización para un cambio de gobierno", date: "15 Abr 2026", read: "8 min", img: "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", featured: true },
-  { cat: "Crisis", title: "Los 5 errores más comunes en el manejo de crisis reputacionales", date: "10 Abr 2026", read: "6 min", img: "https://images.unsplash.com/photo-1620715153885-9c2c36155b70?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", featured: false },
-  { cat: "Comunicación Digital", title: "IA y comunicación estratégica: cómo están cambiando las reglas", date: "5 Abr 2026", read: "10 min", img: "https://images.unsplash.com/photo-1759752394755-1241472b589d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", featured: false },
-  { cat: "Comunicaciones", title: "Media training en la era digital: claves para voceros efectivos", date: "28 Mar 2026", read: "7 min", img: "https://images.unsplash.com/photo-1682617367184-5ccbda40e4a4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", featured: false },
-  { cat: "IPM", title: "¿Cómo medir el ROI de tu estrategia de comunicaciones?", date: "20 Mar 2026", read: "9 min", img: "https://images.unsplash.com/photo-1686061593213-98dad7c599b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800", featured: false },
-];
+const INSIGHTS = INSIGHT_ARTICLES.slice(0, 3);
+const BLOG_POSTS = BLOG_ARTICLES;
 
 const EPISODES = [
   { n: "EP 24", title: "El futuro del lobby en Colombia con Daniel García", guest: "Daniel García · Ex Congresista", dur: "54 min", date: "Abr 2026" },
@@ -93,7 +64,7 @@ export default function ThoughtLeadership() {
               color: B3,
               margin: 0
             }}>INSIGHTS</h2>
-            <Link to="/insights" style={{
+            <Link to="/thought-leadership/insights" style={{
               fontFamily: FONT,
               fontWeight: 600,
               fontSize: 12,
@@ -111,10 +82,10 @@ export default function ThoughtLeadership() {
           {/* Insights Grid — Tailwind handles columns */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3" style={{ gap: 40 }}>
             {INSIGHTS.map((insight, i) => (
-              <div key={i}
+              <Link key={insight.slug} to={articlePath(insight)}
                 onMouseEnter={() => setInsightHov(i)}
                 onMouseLeave={() => setInsightHov(null)}
-                style={{ display: "flex", flexDirection: "column", cursor: "pointer" }}>
+                style={{ display: "flex", flexDirection: "column", cursor: "pointer", textDecoration: "none" }}>
                 <div style={{ width: "100%", height: 280, overflow: "hidden", backgroundColor: "#111", flexShrink: 0 }}>
                   <img
                     src={insight.img}
@@ -140,7 +111,7 @@ export default function ThoughtLeadership() {
                     <span style={{ fontFamily: FONT, fontWeight: 600, fontSize: 12, letterSpacing: "0.96px", textTransform: "uppercase", color: insightHov === i ? "rgba(0,0,0,0.6)" : "rgba(0,0,0,0.3)", transition: "color 0.2s" }}>Leer →</span>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -151,14 +122,14 @@ export default function ThoughtLeadership() {
         <div className="lpg-pad" style={{ maxWidth: 1440, margin: "0 auto", paddingLeft: 48, paddingRight: 48, paddingTop: 100, paddingBottom: 100 }}>
           <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", borderBottom: `1px solid ${L_RULE}`, paddingBottom: 40, marginBottom: 64, flexWrap: "wrap", gap: 12 }}>
             <h2 style={{ fontFamily: FONT, fontWeight: 900, fontSize: "clamp(36px, 5.5vw, 80px)", letterSpacing: "-0.05em", lineHeight: 0.88, color: B3 }}>BLOG</h2>
-            <span style={{ fontFamily: FONT, fontWeight: 300, fontSize: 13, color: L_MID, alignSelf: "flex-end", paddingBottom: 8 }}>Análisis y perspectivas</span>
+            <Link to="/thought-leadership/blog" style={{ fontFamily: FONT, fontWeight: 600, fontSize: 12, letterSpacing: "1.2px", textTransform: "uppercase", color: B3, textDecoration: "none", borderBottom: `1px solid ${B3}`, paddingBottom: 6, alignSelf: "flex-end" }}>Ver todos →</Link>
           </div>
 
           {/* Featured post — Tailwind handles responsive columns */}
           {BLOG_POSTS.filter(p => p.featured).map((post, i) => (
-            <div key={i} onMouseEnter={() => setBlogHov(-1)} onMouseLeave={() => setBlogHov(null)}
+            <Link key={post.slug} to={articlePath(post)} onMouseEnter={() => setBlogHov(-1)} onMouseLeave={() => setBlogHov(null)}
               className="grid grid-cols-1 md:grid-cols-2"
-              style={{ gap: 2, backgroundColor: L_RULE, marginBottom: 2, cursor: "pointer" }}>
+              style={{ gap: 2, backgroundColor: L_RULE, marginBottom: 2, cursor: "pointer", textDecoration: "none" }}>
               <div style={{ aspectRatio: "16/9", overflow: "hidden", position: "relative" }}>
                 <img src={post.img} alt={post.title} style={{ width: "100%", height: "100%", objectFit: "cover", filter: blogHov === -1 ? "grayscale(0)" : "grayscale(0.3)", transform: blogHov === -1 ? "scale(1.03)" : "scale(1)", transition: "filter 0.5s, transform 0.6s" }} />
               </div>
@@ -170,14 +141,14 @@ export default function ThoughtLeadership() {
                 <h3 style={{ fontFamily: FONT, fontWeight: 900, fontSize: "clamp(24px, 3.5vw, 48px)", letterSpacing: "-0.04em", lineHeight: 1.0, color: B3, marginBottom: 24 }}>{post.title}</h3>
                 <span style={{ fontFamily: FONT, fontWeight: 600, fontSize: 12, letterSpacing: "0.1em", textTransform: "uppercase", color: B3, borderBottom: `1px solid ${B3}44`, paddingBottom: 2, display: "inline-block", width: "fit-content" }}>Leer artículo →</span>
               </div>
-            </div>
+            </Link>
           ))}
 
           {/* Other posts grid — Tailwind handles columns */}
           <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: 2, backgroundColor: L_RULE }}>
             {BLOG_POSTS.filter(p => !p.featured).map((post, i) => (
-              <div key={i} onMouseEnter={() => setBlogHov(i)} onMouseLeave={() => setBlogHov(null)}
-                style={{ backgroundColor: L_BG, cursor: "pointer" }}>
+              <Link key={post.slug} to={articlePath(post)} onMouseEnter={() => setBlogHov(i)} onMouseLeave={() => setBlogHov(null)}
+                style={{ backgroundColor: L_BG, cursor: "pointer", textDecoration: "none" }}>
                 <div style={{ aspectRatio: "16/9", overflow: "hidden", position: "relative" }}>
                   <img src={post.img} alt={post.title} style={{ width: "100%", height: "100%", objectFit: "cover", filter: blogHov === i ? "grayscale(0)" : "grayscale(0.5)", transform: blogHov === i ? "scale(1.04)" : "scale(1)", transition: "filter 0.5s, transform 0.6s" }} />
                   <div style={{ position: "absolute", inset: 0, background: `linear-gradient(160deg, ${B3}${blogHov === i ? "22" : "55"} 0%, transparent 60%)`, transition: "background 0.5s", pointerEvents: "none" }} />
@@ -189,7 +160,7 @@ export default function ThoughtLeadership() {
                   </div>
                   <h3 style={{ fontFamily: FONT, fontWeight: 700, fontSize: "clamp(16px, 2vw, 22px)", letterSpacing: "-0.02em", lineHeight: 1.25, color: B3 }}>{post.title}</h3>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

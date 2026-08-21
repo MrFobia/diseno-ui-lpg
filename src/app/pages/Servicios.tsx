@@ -150,7 +150,7 @@ export default function Servicios() {
           <div className="grid grid-cols-2 md:grid-cols-4" style={{ gap: 1, backgroundColor: W08 }}>
             {[
               { n: "200+", l: "Clientes estratégicos atendidos" },
-              { n: "20+",  l: "Años de experiencia acumulada" },
+              { n: "16",   l: "Años de experiencia acumulada" },
               { n: "98%",  l: "Retención de clientes año a año" },
               { n: "4",    l: "Divisiones especializadas" },
             ].map(({ n, l }) => (

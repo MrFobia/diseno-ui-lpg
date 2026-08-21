@@ -46,7 +46,7 @@ const OFFICE_CITIES = [
   { name: "Bogotá",   badge: "Sede Principal",    since: "2010", primary: true,
     address: "Cra 7 #71-52, Edificio Aliadas, Piso 8",   phone: "+57 (1) 555-0200",
     email: "bogota@libretapersonal.co", hours: "Lun–Vie 8am–6pm" },
-  { name: "Cali",     badge: "Oficina Valle",     since: "2004", primary: false,
+  { name: "Cali",     badge: "Oficina Valle",     since: "2015", primary: false,
     address: "Av. 5N #23-10, Torre Empresarial, Piso 12", phone: "+57 (2) 555-0100",
     email: "cali@libretapersonal.co", hours: "Lun–Vie 8am–6pm" },
   { name: "Medellín", badge: "Oficina Antioquia", since: "2018", primary: false,
@@ -110,8 +110,8 @@ export default function Nosotros() {
           {/* Removed inline display/gridTemplateColumns — Tailwind handles responsive */}
           <div className="grid grid-cols-2 md:grid-cols-4" style={{ gap: 1, backgroundColor: `${W}18` }}>
             {[
-              { n: "2004", l: "Año de fundación"       },
-              { n: "20+",  l: "Años de trayectoria"    },
+              { n: "2010", l: "Año de fundación"       },
+              { n: "16",   l: "Años de trayectoria"    },
               { n: "200+", l: "Clientes estratégicos"  },
               { n: "3",    l: "Ciudades en Colombia"   },
             ].map(({ n, l }) => (

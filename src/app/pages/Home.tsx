@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router";
+import { INSIGHT_ARTICLES, articlePath } from "../data/content";
 import { ALL_LOGOS } from "../data/clientLogos";
 import imgPersona from "figma:asset/25a2d6a5fa7ba5e46df1b52c9355918f1cddea84.png";
 import imgOffice  from "figma:asset/730840829b225cbc4017ffdb4809631bf68e48f0.png";
@@ -18,14 +19,7 @@ const SVCS = [
   { num: "03", title: "COMUNICACIÓN DIGITAL", tags: ["AI Social", "Analytics", "Content Lab", "SEO"],           href: "/servicios/digital" },
   { num: "04", title: "MANEJO DE CRISIS",     tags: ["Prevención", "Real-Time", "Recovery", "Monitoreo 24/7"],  href: "/servicios/crisis" },
 ];
-const INS = [
-  { cat: "AI & Management", title: "IA en la gestión de crisis reputacionales", date: "Marzo 2026",
-    img: "https://images.unsplash.com/photo-1760238209114-29f51d879d5e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800" },
-  { cat: "Podcast", title: "Diálogos de Reputación con líderes de Colombia", date: "Febrero 2026",
-    img: "https://images.unsplash.com/photo-1670382417551-d2f1ee29aea4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800" },
-  { cat: "Recurso", title: "Guía definitiva para el manejo de crisis corporativas", date: "Enero 2026",
-    img: "https://images.unsplash.com/photo-1737575291989-0882b03f97b6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800" },
-];
+const INS = INSIGHT_ARTICLES.slice(0, 3);
 
 export default function Home() {
   const [in_, setIn] = useState(false);
@@ -59,7 +53,7 @@ export default function Home() {
           </div>
           <div style={{ marginTop: 60, borderTop: `1px solid ${W08}`, paddingTop: 28, display: "flex", alignItems: "flex-end", flexWrap: "wrap", gap: 24 }}>
             <div style={{ display: "flex", gap: 32 }}>
-              {[{ n: "20+", l: "Años" }, { n: "200+", l: "Clientes" }, { n: "3", l: "Ciudades" }].map(({ n, l }) => (
+              {[{ n: "16", l: "Años" }, { n: "200+", l: "Clientes" }, { n: "3", l: "Ciudades" }].map(({ n, l }) => (
                 <div key={l}>
                   <div style={{ fontFamily: FONT, fontWeight: 900, fontSize: 30, letterSpacing: "-0.04em", color: GREEN, lineHeight: 1 }}>{n}</div>
                   <div style={{ fontFamily: FONT, fontWeight: 400, fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", color: W40, marginTop: 5 }}>{l}</div>
@@ -157,7 +151,7 @@ export default function Home() {
             {/* Left column */}
             <div>
               <p style={{ fontFamily: FONT, fontWeight: 700, fontSize: "clamp(20px, 2.4vw, 38px)", lineHeight: 1.25, letterSpacing: "-0.02em", color: "#0a0a0a", marginBottom: 28 }}>
-                Libreta Personal Group es una firma de consultoría estratégica con dos décadas construyendo confianza en las organizaciones más influyentes de Colombia.
+                Libreta Personal Group es una firma de consultoría estratégica con 16 años construyendo confianza en las organizaciones más influyentes de Colombia.
               </p>
               <p style={{ fontFamily: FONT, fontWeight: 300, fontSize: 17, lineHeight: 1.8, color: "rgba(0,0,0,0.45)", marginBottom: 48 }}>
                 Operamos en la intersección de la política, los negocios y la comunicación. Un espacio donde la información es poder y la reputación es capital. Nuestros clientes nos eligen porque somos discretos, estratégicos y medibles.
@@ -166,7 +160,7 @@ export default function Home() {
               {/* Stats 2×2 grid */}
               <div style={{ borderTop: "1px solid rgba(0,0,0,0.08)", paddingTop: 48, display: "grid", gridTemplateColumns: "1fr 1fr", rowGap: 40, columnGap: 24 }}>
                 {[
-                  { n: "20+",  l: "Años en el mercado" },
+                  { n: "16",   l: "Años en el mercado" },
                   { n: "3",    l: "Ciudades: Bogotá · Cali · Medellín" },
                   { n: "4",    l: "Divisiones especializadas" },
                   { n: "200+", l: "Clientes estratégicos" },
@@ -226,12 +220,12 @@ export default function Home() {
         <div className="lpg-pad" style={{ maxWidth: 1440, margin: "0 auto", paddingLeft: 48, paddingRight: 48, paddingTop: 100, paddingBottom: 100, position: "relative" }}>
           <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", borderBottom: `1px solid #00000014`, paddingBottom: 40, marginBottom: 56 }}>
             <h2 style={{ fontFamily: FONT, fontWeight: 900, fontSize: "clamp(40px, 5.5vw, 80px)", letterSpacing: "-0.05em", lineHeight: 0.85, color: B3 }}>INSIGHTS</h2>
-            <Link to="/thought-leadership" style={{ fontFamily: FONT, fontWeight: 500, fontSize: 12, letterSpacing: "0.1em", textTransform: "uppercase", color: B3, textDecoration: "none", alignSelf: "flex-end", paddingBottom: 8, borderBottom: `1px solid ${B3}55` }}>Ver todos →</Link>
+            <Link to="/thought-leadership/insights" style={{ fontFamily: FONT, fontWeight: 500, fontSize: 12, letterSpacing: "0.1em", textTransform: "uppercase", color: B3, textDecoration: "none", alignSelf: "flex-end", paddingBottom: 8, borderBottom: `1px solid ${B3}55` }}>Ver todos →</Link>
           </div>
           {/* Removed inline display/gridTemplateColumns — Tailwind responsive classes handle layout */}
           <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: 40 }}>
             {INS.map((item, i) => (
-              <div key={i} onMouseEnter={() => setInsHov(i)} onMouseLeave={() => setInsHov(null)} style={{ cursor: "pointer", display: "flex", flexDirection: "column", height: "100%" }}>
+              <Link key={item.slug} to={articlePath(item)} onMouseEnter={() => setInsHov(i)} onMouseLeave={() => setInsHov(null)} style={{ cursor: "pointer", display: "flex", flexDirection: "column", height: "100%", textDecoration: "none" }}>
                 <div style={{ aspectRatio: "4/3", overflow: "hidden", position: "relative", backgroundColor: "#111" }}>
                   <img src={item.img} alt={item.title} style={{ width: "100%", height: "100%", objectFit: "cover", filter: `brightness(${insHov === i ? 0.95 : 0.78}) saturate(${insHov === i ? 1 : 0.7})`, transform: insHov === i ? "scale(1.05)" : "scale(1)", transition: "filter 0.5s ease, transform 0.6s ease" }} />
                   <div style={{ position: "absolute", inset: 0, background: `linear-gradient(160deg, ${B3}${insHov === i ? "11" : "33"} 0%, transparent 80%)`, transition: "background 0.5s ease" }} />
@@ -244,7 +238,7 @@ export default function Home() {
                     <span style={{ fontFamily: FONT, fontWeight: 500, fontSize: 12, letterSpacing: "0.08em", textTransform: "uppercase", color: insHov === i ? B3 : "#00000059", transition: "color 0.2s" }}>Leer →</span>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
